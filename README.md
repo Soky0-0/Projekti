@@ -1,1 +1,1 @@
-Portfolio mojih osobnih projekata, zadataka i sličnih stvari 
+Video igra kreirana u Unity programu, u svrhu osobnog završnog rada
