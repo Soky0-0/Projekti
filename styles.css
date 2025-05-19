@@ -1,0 +1,98 @@
+/* Zajednički stilovi za sve stranice */
+.navbar {
+  background-color: #d9eafc;
+}
+.divider {
+  text-align: center;
+  margin: 30px 0;
+}
+.divider span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #0056b3;
+  border-radius: 50%;
+}
+.hero-section {
+  padding: 40px 0;
+}
+.logo-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+.social-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  margin-left: 5px;
+}
+
+/* Stilovi za početnu stranicu */
+.map-container {
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card-img-top {
+  height: 150px;
+  object-fit: cover;
+}
+.destination-section {
+  background-color: #e6f2ff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Stilovi za O nama stranicu */
+.about-section {
+  background-color: #fff;
+  padding: 30px 0;
+  border-bottom: 1px solid #eee;
+}
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.highlight {
+  font-weight: bold;
+  color: #0056b3;
+}
+.map-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.experience-section, .transport-section {
+  padding: 30px 0;
+  border-bottom: 1px solid #eee;
+}
+.partner-logos {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.carousel-control-prev, .carousel-control-next {
+  width: 5%;
+}
+.carousel-indicators {
+  bottom: -40px;
+}
+.carousel-indicators button {
+  background-color: #0056b3;
+}
