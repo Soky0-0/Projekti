@@ -1,5 +1,7 @@
 Video igra kreirana u Unity programu, u svrhu osobnog završnog rada
 
+Igra je Angry Birds remake iz 2010 popularnog serijala igara. 
+
 Zbog ograničenja github uploda igra je dostupna za preuzimanje na google disku
 
 AKo Vas zanima više možete preuzeti projeke u cjelosti na ovom linku 
