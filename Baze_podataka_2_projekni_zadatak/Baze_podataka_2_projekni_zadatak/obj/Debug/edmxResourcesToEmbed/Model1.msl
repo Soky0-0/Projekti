@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudentsDomDBModelStoreContainer" CdmEntityContainer="StudentsDomDBEntities">
+    <EntitySetMapping Name="Administrator">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Administrator">
+        <MappingFragment StoreEntitySet="Administrator">
+          <ScalarProperty Name="ID_admin" ColumnName="ID_admin" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kreira">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Kreira">
+        <MappingFragment StoreEntitySet="Kreira">
+          <ScalarProperty Name="ID_student" ColumnName="ID_student" />
+          <ScalarProperty Name="ID_povijest" ColumnName="ID_povijest" />
+          <ScalarProperty Name="ID_rezervacije" ColumnName="ID_rezervacije" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kvar">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Kvar">
+        <MappingFragment StoreEntitySet="Kvar">
+          <ScalarProperty Name="ID_kvara" ColumnName="ID_kvara" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Datum_prijave" ColumnName="Datum_prijave" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ID_jedinice" ColumnName="ID_jedinice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Placanje">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Placanje">
+        <MappingFragment StoreEntitySet="Placanje">
+          <ScalarProperty Name="ID_placanja" ColumnName="ID_placanja" />
+          <ScalarProperty Name="Iznos" ColumnName="Iznos" />
+          <ScalarProperty Name="Datum_placanja" ColumnName="Datum_placanja" />
+          <ScalarProperty Name="Nacin_placanja" ColumnName="Nacin_placanja" />
+          <ScalarProperty Name="ID_rezervacije" ColumnName="ID_rezervacije" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Podnesena">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Podnesena">
+        <MappingFragment StoreEntitySet="Podnesena">
+          <ScalarProperty Name="ID_student" ColumnName="ID_student" />
+          <ScalarProperty Name="ID_prituzbe" ColumnName="ID_prituzbe" />
+          <ScalarProperty Name="Kategorija_prituzbe" ColumnName="Kategorija_prituzbe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Povijest_rezervacija">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Povijest_rezervacija">
+        <MappingFragment StoreEntitySet="Povijest_rezervacija">
+          <ScalarProperty Name="ID_povijesti" ColumnName="ID_povijesti" />
+          <ScalarProperty Name="Datum_izmjene" ColumnName="Datum_izmjene" />
+          <ScalarProperty Name="Opis_izmjene" ColumnName="Opis_izmjene" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prituzba">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Prituzba">
+        <MappingFragment StoreEntitySet="Prituzba">
+          <ScalarProperty Name="ID_prituzbe" ColumnName="ID_prituzbe" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Datum_prijave" ColumnName="Datum_prijave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rad_na_kvarovima">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Rad_na_kvarovima">
+        <MappingFragment StoreEntitySet="Rad_na_kvarovima">
+          <ScalarProperty Name="ID_admin" ColumnName="ID_admin" />
+          <ScalarProperty Name="ID_zaposlenika" ColumnName="ID_zaposlenika" />
+          <ScalarProperty Name="ID_kvar" ColumnName="ID_kvar" />
+          <ScalarProperty Name="Datum_rada" ColumnName="Datum_rada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rezervacija">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Rezervacija">
+        <MappingFragment StoreEntitySet="Rezervacija">
+          <ScalarProperty Name="ID_rezervacije" ColumnName="ID_rezervacije" />
+          <ScalarProperty Name="Datum_rezervacije" ColumnName="Datum_rezervacije" />
+          <ScalarProperty Name="Datum_pocetka" ColumnName="Datum_pocetka" />
+          <ScalarProperty Name="Datum_zavrsetka" ColumnName="Datum_zavrsetka" />
+          <ScalarProperty Name="ID_jedinice" ColumnName="ID_jedinice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Smjestajna_jedinica">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Smjestajna_jedinica">
+        <MappingFragment StoreEntitySet="Smjestajna_jedinica">
+          <ScalarProperty Name="ID_jedinice" ColumnName="ID_jedinice" />
+          <ScalarProperty Name="Broj_sobe" ColumnName="Broj_sobe" />
+          <ScalarProperty Name="Kapacitet" ColumnName="Kapacitet" />
+          <ScalarProperty Name="Tip_sobe" ColumnName="Tip_sobe" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="ID_studenta" ColumnName="ID_studenta" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tip_smjestaja">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Tip_smjestaja">
+        <MappingFragment StoreEntitySet="Tip_smjestaja">
+          <ScalarProperty Name="ID_tipa" ColumnName="ID_tipa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Cijena_po_nocenju" ColumnName="Cijena_po_nocenju" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zaposlenik">
+      <EntityTypeMapping TypeName="StudentsDomDBModel.Zaposlenik">
+        <MappingFragment StoreEntitySet="Zaposlenik">
+          <ScalarProperty Name="ID_zaposlenika" ColumnName="ID_zaposlenika" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Pozicija" ColumnName="Pozicija" />
+          <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentsDomDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Administrator">
+    <Key>
+      <PropertyRef Name="ID_admin" />
+    </Key>
+    <Property Name="ID_admin" Type="Int32" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Kontakt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Rad_na_kvarovima" Relationship="Self.FK__Rad_na_kv__ID_ad__6FB49575" FromRole="Administrator" ToRole="Rad_na_kvarovima" />
+  </EntityType>
+  <EntityType Name="Kreira">
+    <Key>
+      <PropertyRef Name="ID_student" />
+      <PropertyRef Name="ID_povijest" />
+    </Key>
+    <Property Name="ID_student" Type="Int32" Nullable="false" />
+    <Property Name="ID_povijest" Type="Int32" Nullable="false" />
+    <Property Name="ID_rezervacije" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Povijest_rezervacija" Relationship="Self.FK__Kreira__ID_povij__7755B73D" FromRole="Kreira" ToRole="Povijest_rezervacija" />
+    <NavigationProperty Name="Rezervacija" Relationship="Self.FK__Kreira__ID_rezer__7849DB76" FromRole="Kreira" ToRole="Rezervacija" />
+    <NavigationProperty Name="Student" Relationship="Self.FK__Kreira__ID_stude__76619304" FromRole="Kreira" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Kvar">
+    <Key>
+      <PropertyRef Name="ID_kvara" />
+    </Key>
+    <Property Name="ID_kvara" Type="Int32" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Datum_prijave" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_jedinice" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Smjestajna_jedinica" Relationship="Self.FK__Kvar__ID_jedinic__65370702" FromRole="Kvar" ToRole="Smjestajna_jedinica" />
+    <NavigationProperty Name="Rad_na_kvarovima" Relationship="Self.FK__Rad_na_kv__ID_kv__719CDDE7" FromRole="Kvar" ToRole="Rad_na_kvarovima" />
+  </EntityType>
+  <EntityType Name="Placanje">
+    <Key>
+      <PropertyRef Name="ID_placanja" />
+    </Key>
+    <Property Name="ID_placanja" Type="Int32" Nullable="false" />
+    <Property Name="Iznos" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Datum_placanja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nacin_placanja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_rezervacije" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rezervacija" Relationship="Self.FK__Placanje__ID_rez__607251E5" FromRole="Placanje" ToRole="Rezervacija" />
+  </EntityType>
+  <EntityType Name="Podnesena">
+    <Key>
+      <PropertyRef Name="ID_student" />
+      <PropertyRef Name="ID_prituzbe" />
+    </Key>
+    <Property Name="ID_student" Type="Int32" Nullable="false" />
+    <Property Name="ID_prituzbe" Type="Int32" Nullable="false" />
+    <Property Name="Kategorija_prituzbe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Prituzba" Relationship="Self.FK__Podnesena__ID_pr__7C1A6C5A" FromRole="Podnesena" ToRole="Prituzba" />
+    <NavigationProperty Name="Student" Relationship="Self.FK__Podnesena__ID_st__7B264821" FromRole="Podnesena" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Povijest_rezervacija">
+    <Key>
+      <PropertyRef Name="ID_povijesti" />
+    </Key>
+    <Property Name="ID_povijesti" Type="Int32" Nullable="false" />
+    <Property Name="Datum_izmjene" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Opis_izmjene" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Kreira" Relationship="Self.FK__Kreira__ID_povij__7755B73D" FromRole="Povijest_rezervacija" ToRole="Kreira" />
+  </EntityType>
+  <EntityType Name="Prituzba">
+    <Key>
+      <PropertyRef Name="ID_prituzbe" />
+    </Key>
+    <Property Name="ID_prituzbe" Type="Int32" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Datum_prijave" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Podnesena" Relationship="Self.FK__Podnesena__ID_pr__7C1A6C5A" FromRole="Prituzba" ToRole="Podnesena" />
+  </EntityType>
+  <EntityType Name="Rad_na_kvarovima">
+    <Key>
+      <PropertyRef Name="ID_admin" />
+      <PropertyRef Name="ID_zaposlenika" />
+    </Key>
+    <Property Name="ID_admin" Type="Int32" Nullable="false" />
+    <Property Name="ID_zaposlenika" Type="Int32" Nullable="false" />
+    <Property Name="ID_kvar" Type="Int32" Nullable="false" />
+    <Property Name="Datum_rada" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Administrator" Relationship="Self.FK__Rad_na_kv__ID_ad__6FB49575" FromRole="Rad_na_kvarovima" ToRole="Administrator" />
+    <NavigationProperty Name="Kvar" Relationship="Self.FK__Rad_na_kv__ID_kv__719CDDE7" FromRole="Rad_na_kvarovima" ToRole="Kvar" />
+    <NavigationProperty Name="Zaposlenik" Relationship="Self.FK__Rad_na_kv__ID_za__70A8B9AE" FromRole="Rad_na_kvarovima" ToRole="Zaposlenik" />
+  </EntityType>
+  <EntityType Name="Rezervacija">
+    <Key>
+      <PropertyRef Name="ID_rezervacije" />
+    </Key>
+    <Property Name="ID_rezervacije" Type="Int32" Nullable="false" />
+    <Property Name="Datum_rezervacije" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Datum_pocetka" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Datum_zavrsetka" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_jedinice" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kreira" Relationship="Self.FK__Kreira__ID_rezer__7849DB76" FromRole="Rezervacija" ToRole="Kreira" />
+    <NavigationProperty Name="Placanje" Relationship="Self.FK__Placanje__ID_rez__607251E5" FromRole="Rezervacija" ToRole="Placanje" />
+    <NavigationProperty Name="Smjestajna_jedinica" Relationship="Self.FK__Rezervaci__ID_je__5BAD9CC8" FromRole="Rezervacija" ToRole="Smjestajna_jedinica" />
+  </EntityType>
+  <EntityType Name="Smjestajna_jedinica">
+    <Key>
+      <PropertyRef Name="ID_jedinice" />
+    </Key>
+    <Property Name="ID_jedinice" Type="Int32" Nullable="false" />
+    <Property Name="Broj_sobe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Kapacitet" Type="Int32" Nullable="false" />
+    <Property Name="Tip_sobe" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Kvar" Relationship="Self.FK__Kvar__ID_jedinic__65370702" FromRole="Smjestajna_jedinica" ToRole="Kvar" />
+    <NavigationProperty Name="Rezervacija" Relationship="Self.FK__Rezervaci__ID_je__5BAD9CC8" FromRole="Smjestajna_jedinica" ToRole="Rezervacija" />
+    <NavigationProperty Name="Tip_smjestaja" Relationship="Self.FK__Smjestajn__Tip_s__58D1301D" FromRole="Smjestajna_jedinica" ToRole="Tip_smjestaja" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID_studenta" />
+    </Key>
+    <Property Name="ID_studenta" Type="Int32" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Kontakt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Kreira" Relationship="Self.FK__Kreira__ID_stude__76619304" FromRole="Student" ToRole="Kreira" />
+    <NavigationProperty Name="Podnesena" Relationship="Self.FK__Podnesena__ID_st__7B264821" FromRole="Student" ToRole="Podnesena" />
+  </EntityType>
+  <EntityType Name="Tip_smjestaja">
+    <Key>
+      <PropertyRef Name="ID_tipa" />
+    </Key>
+    <Property Name="ID_tipa" Type="Int32" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cijena_po_nocenju" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Smjestajna_jedinica" Relationship="Self.FK__Smjestajn__Tip_s__58D1301D" FromRole="Tip_smjestaja" ToRole="Smjestajna_jedinica" />
+  </EntityType>
+  <EntityType Name="Zaposlenik">
+    <Key>
+      <PropertyRef Name="ID_zaposlenika" />
+    </Key>
+    <Property Name="ID_zaposlenika" Type="Int32" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pozicija" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Kontakt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Rad_na_kvarovima" Relationship="Self.FK__Rad_na_kv__ID_za__70A8B9AE" FromRole="Zaposlenik" ToRole="Rad_na_kvarovima" />
+  </EntityType>
+  <Association Name="FK__Rad_na_kv__ID_ad__6FB49575">
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+    <End Role="Rad_na_kvarovima" Type="Self.Rad_na_kvarovima" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="ID_admin" />
+      </Principal>
+      <Dependent Role="Rad_na_kvarovima">
+        <PropertyRef Name="ID_admin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kreira__ID_povij__7755B73D">
+    <End Role="Povijest_rezervacija" Type="Self.Povijest_rezervacija" Multiplicity="1" />
+    <End Role="Kreira" Type="Self.Kreira" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Povijest_rezervacija">
+        <PropertyRef Name="ID_povijesti" />
+      </Principal>
+      <Dependent Role="Kreira">
+        <PropertyRef Name="ID_povijest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kreira__ID_rezer__7849DB76">
+    <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="1" />
+    <End Role="Kreira" Type="Self.Kreira" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rezervacija">
+        <PropertyRef Name="ID_rezervacije" />
+      </Principal>
+      <Dependent Role="Kreira">
+        <PropertyRef Name="ID_rezervacije" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kreira__ID_stude__76619304">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Kreira" Type="Self.Kreira" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID_studenta" />
+      </Principal>
+      <Dependent Role="Kreira">
+        <PropertyRef Name="ID_student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kvar__ID_jedinic__65370702">
+    <End Role="Smjestajna_jedinica" Type="Self.Smjestajna_jedinica" Multiplicity="1" />
+    <End Role="Kvar" Type="Self.Kvar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Smjestajna_jedinica">
+        <PropertyRef Name="ID_jedinice" />
+      </Principal>
+      <Dependent Role="Kvar">
+        <PropertyRef Name="ID_jedinice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rad_na_kv__ID_kv__719CDDE7">
+    <End Role="Kvar" Type="Self.Kvar" Multiplicity="1" />
+    <End Role="Rad_na_kvarovima" Type="Self.Rad_na_kvarovima" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kvar">
+        <PropertyRef Name="ID_kvara" />
+      </Principal>
+      <Dependent Role="Rad_na_kvarovima">
+        <PropertyRef Name="ID_kvar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Placanje__ID_rez__607251E5">
+    <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="1" />
+    <End Role="Placanje" Type="Self.Placanje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rezervacija">
+        <PropertyRef Name="ID_rezervacije" />
+      </Principal>
+      <Dependent Role="Placanje">
+        <PropertyRef Name="ID_rezervacije" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Podnesena__ID_pr__7C1A6C5A">
+    <End Role="Prituzba" Type="Self.Prituzba" Multiplicity="1" />
+    <End Role="Podnesena" Type="Self.Podnesena" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prituzba">
+        <PropertyRef Name="ID_prituzbe" />
+      </Principal>
+      <Dependent Role="Podnesena">
+        <PropertyRef Name="ID_prituzbe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Podnesena__ID_st__7B264821">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Podnesena" Type="Self.Podnesena" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID_studenta" />
+      </Principal>
+      <Dependent Role="Podnesena">
+        <PropertyRef Name="ID_student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rad_na_kv__ID_za__70A8B9AE">
+    <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="1" />
+    <End Role="Rad_na_kvarovima" Type="Self.Rad_na_kvarovima" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zaposlenik">
+        <PropertyRef Name="ID_zaposlenika" />
+      </Principal>
+      <Dependent Role="Rad_na_kvarovima">
+        <PropertyRef Name="ID_zaposlenika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rezervaci__ID_je__5BAD9CC8">
+    <End Role="Smjestajna_jedinica" Type="Self.Smjestajna_jedinica" Multiplicity="1" />
+    <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Smjestajna_jedinica">
+        <PropertyRef Name="ID_jedinice" />
+      </Principal>
+      <Dependent Role="Rezervacija">
+        <PropertyRef Name="ID_jedinice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Smjestajn__Tip_s__58D1301D">
+    <End Role="Tip_smjestaja" Type="Self.Tip_smjestaja" Multiplicity="1" />
+    <End Role="Smjestajna_jedinica" Type="Self.Smjestajna_jedinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tip_smjestaja">
+        <PropertyRef Name="ID_tipa" />
+      </Principal>
+      <Dependent Role="Smjestajna_jedinica">
+        <PropertyRef Name="Tip_sobe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StudentsDomDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Administrator" EntityType="Self.Administrator" />
+    <EntitySet Name="Kreira" EntityType="Self.Kreira" />
+    <EntitySet Name="Kvar" EntityType="Self.Kvar" />
+    <EntitySet Name="Placanje" EntityType="Self.Placanje" />
+    <EntitySet Name="Podnesena" EntityType="Self.Podnesena" />
+    <EntitySet Name="Povijest_rezervacija" EntityType="Self.Povijest_rezervacija" />
+    <EntitySet Name="Prituzba" EntityType="Self.Prituzba" />
+    <EntitySet Name="Rad_na_kvarovima" EntityType="Self.Rad_na_kvarovima" />
+    <EntitySet Name="Rezervacija" EntityType="Self.Rezervacija" />
+    <EntitySet Name="Smjestajna_jedinica" EntityType="Self.Smjestajna_jedinica" />
+    <EntitySet Name="Student" EntityType="Self.Student" />
+    <EntitySet Name="Tip_smjestaja" EntityType="Self.Tip_smjestaja" />
+    <EntitySet Name="Zaposlenik" EntityType="Self.Zaposlenik" />
+    <AssociationSet Name="FK__Rad_na_kv__ID_ad__6FB49575" Association="Self.FK__Rad_na_kv__ID_ad__6FB49575">
+      <End Role="Administrator" EntitySet="Administrator" />
+      <End Role="Rad_na_kvarovima" EntitySet="Rad_na_kvarovima" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kreira__ID_povij__7755B73D" Association="Self.FK__Kreira__ID_povij__7755B73D">
+      <End Role="Povijest_rezervacija" EntitySet="Povijest_rezervacija" />
+      <End Role="Kreira" EntitySet="Kreira" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kreira__ID_rezer__7849DB76" Association="Self.FK__Kreira__ID_rezer__7849DB76">
+      <End Role="Rezervacija" EntitySet="Rezervacija" />
+      <End Role="Kreira" EntitySet="Kreira" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kreira__ID_stude__76619304" Association="Self.FK__Kreira__ID_stude__76619304">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Kreira" EntitySet="Kreira" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kvar__ID_jedinic__65370702" Association="Self.FK__Kvar__ID_jedinic__65370702">
+      <End Role="Smjestajna_jedinica" EntitySet="Smjestajna_jedinica" />
+      <End Role="Kvar" EntitySet="Kvar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rad_na_kv__ID_kv__719CDDE7" Association="Self.FK__Rad_na_kv__ID_kv__719CDDE7">
+      <End Role="Kvar" EntitySet="Kvar" />
+      <End Role="Rad_na_kvarovima" EntitySet="Rad_na_kvarovima" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Placanje__ID_rez__607251E5" Association="Self.FK__Placanje__ID_rez__607251E5">
+      <End Role="Rezervacija" EntitySet="Rezervacija" />
+      <End Role="Placanje" EntitySet="Placanje" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Podnesena__ID_pr__7C1A6C5A" Association="Self.FK__Podnesena__ID_pr__7C1A6C5A">
+      <End Role="Prituzba" EntitySet="Prituzba" />
+      <End Role="Podnesena" EntitySet="Podnesena" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Podnesena__ID_st__7B264821" Association="Self.FK__Podnesena__ID_st__7B264821">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Podnesena" EntitySet="Podnesena" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rad_na_kv__ID_za__70A8B9AE" Association="Self.FK__Rad_na_kv__ID_za__70A8B9AE">
+      <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+      <End Role="Rad_na_kvarovima" EntitySet="Rad_na_kvarovima" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rezervaci__ID_je__5BAD9CC8" Association="Self.FK__Rezervaci__ID_je__5BAD9CC8">
+      <End Role="Smjestajna_jedinica" EntitySet="Smjestajna_jedinica" />
+      <End Role="Rezervacija" EntitySet="Rezervacija" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Smjestajn__Tip_s__58D1301D" Association="Self.FK__Smjestajn__Tip_s__58D1301D">
+      <End Role="Tip_smjestaja" EntitySet="Tip_smjestaja" />
+      <End Role="Smjestajna_jedinica" EntitySet="Smjestajna_jedinica" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

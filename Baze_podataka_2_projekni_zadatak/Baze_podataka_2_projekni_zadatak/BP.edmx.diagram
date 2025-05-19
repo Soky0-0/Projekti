@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="31b723d9db93415280e17ac935dee5c6" Name="Diagram1">
+        <EntityTypeShape EntityType="StudentsDomDBModel.Administrator" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Kreira" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Kvar" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Placanje" Width="1.5" PointX="7.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Podnesena" Width="1.5" PointX="7.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Povijest_rezervacija" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Prituzba" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Rad_na_kvarovima" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Rezervacija" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Smjestajna_jedinica" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Student" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Tip_smjestaja" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsDomDBModel.Zaposlenik" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Rad_na_kv__ID_ad__6FB49575" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Kreira__ID_povij__7755B73D" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Kreira__ID_rezer__7849DB76" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Kreira__ID_stude__76619304" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Kvar__ID_jedinic__65370702" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Rad_na_kv__ID_kv__719CDDE7" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Placanje__ID_rez__607251E5" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Podnesena__ID_pr__7C1A6C5A" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Podnesena__ID_st__7B264821" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Rad_na_kv__ID_za__70A8B9AE" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Rezervaci__ID_je__5BAD9CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentsDomDBModel.FK__Smjestajn__Tip_s__58D1301D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
