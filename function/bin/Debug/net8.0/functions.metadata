@@ -1,0 +1,23 @@
+[
+  {
+    "name": "ProcessFallDetection",
+    "scriptFile": "function.dll",
+    "entryPoint": "FallDetectionFunctionApp.FallDetectionFunction.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "messages",
+        "direction": "In",
+        "type": "eventHubTrigger",
+        "eventHubName": "YourEventHubName",
+        "connection": "EventHubConnectionString",
+        "cardinality": "Many",
+        "dataType": "String",
+        "properties": {}
+      }
+    ]
+  }
+]
