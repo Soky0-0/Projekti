@@ -1,1 +1,1 @@
-Portfolio mojih osobnih projekata, zadataka i sličnih stvari 
+# Platforma-za-djeljenje-znanja
